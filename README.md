@@ -1,6 +1,6 @@
 # Demo
 
-[Visit](https://riflan-react-protected-route.netlify.app/login).
+[Visit](https://riflan-react-protected-route.netlify.app).
 
 # Getting Started with Create React App
 
