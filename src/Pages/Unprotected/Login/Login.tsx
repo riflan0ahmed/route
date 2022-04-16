@@ -1,6 +1,6 @@
-import { Button, TextField } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button, TextField } from "@mui/material";
 
 const Login = (props: {
   authenticate: () => void;
@@ -15,15 +15,15 @@ const Login = (props: {
   const onClick = () => {
     authenticate();
     setUser(value);
-    navigate("profile");
+    navigate("/profile");
   };
 
   return (
-    <div className=" grid grid-cols-2 gap-8">
+    <div className="grid grid-cols-2 gap-8 ">
       <div className="w-full h-screen bg-blue-50"></div>
-      <div className=" flex justify-center items-center">
-        <div className="w-96 flex flex-col gap-4">
-          <h2 className=" font-bold text-3xl text-blue-500">
+      <div className="flex items-center justify-center ">
+        <div className="flex flex-col gap-4 w-96">
+          <h2 className="text-3xl font-bold text-blue-500 ">
             Please login to continue
           </h2>
           <TextField

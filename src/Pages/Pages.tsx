@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useLocalStorage } from "usehooks-ts";
 import Login from "./Unprotected/Login/Login";
 import Dashboard from "./Protected/Dashboard/Dashboard";
 import Profile from "./Protected/Profile/Profile";
+import NotFound from "./Unprotected/NotFound/NotFound";
+import AuthGuard from "./AuthGuard/AuthGuard";
 
 const Pages = () => {
   const [value, setValue] = useState("");
@@ -21,30 +23,38 @@ const Pages = () => {
   return (
     <Routes>
       {/* Unauthenticated Routes */}
-      {!auth && (
-        <Route
-          path="/auth"
-          element={
-            <Login
-              authenticate={authenticate}
-              value={value}
-              setValue={setValue}
-              setUser={setAuth}
-            />
-          }
-        />
-      )}
+      <Route
+        path="/login"
+        element={
+          <Login
+            authenticate={authenticate}
+            value={value}
+            setValue={setValue}
+            setUser={setAuth}
+          />
+        }
+      />
 
       {/* Authenticated Routes */}
-      {auth && (
-        <>
-          <Route path="/profile" element={<Profile logout={logout} />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </>
-      )}
+      <Route
+        path="/profile"
+        element={
+          <AuthGuard auth={auth}>
+            <Profile logout={logout} />
+          </AuthGuard>
+        }
+      />
+      <Route
+        path="/"
+        element={
+          <AuthGuard auth={auth}>
+            <Dashboard />
+          </AuthGuard>
+        }
+      />
 
       {/* Redirect Routes */}
-      <Route path="*" element={<Navigate to={auth ? "/profile" : "/auth"} />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
