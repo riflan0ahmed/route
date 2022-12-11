@@ -1,7 +1,12 @@
-import Pages from "./Pages/Pages";
+import AuthProvider from "./context/Auth";
+import Pages from "./pages/Pages";
 
 function App() {
-  return <Pages />;
+    return (
+        <AuthProvider>
+            <Pages />
+        </AuthProvider>
+    );
 }
 
 export default App;
