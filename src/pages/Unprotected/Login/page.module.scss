@@ -1,0 +1,19 @@
+.login {
+    @apply grid grid-cols-2 gap-8;
+
+    > .left {
+        @apply w-full h-screen bg-blue-50;
+    }
+
+    > .right {
+        @apply flex items-center justify-center;
+
+        > .content {
+            @apply flex flex-col gap-4 w-96;
+
+            > h2 {
+                @apply text-3xl font-bold text-blue-500;
+            }
+        }
+    }
+}

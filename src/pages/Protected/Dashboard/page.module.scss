@@ -1,0 +1,11 @@
+.dashboard {
+    @apply flex flex-col items-center justify-center h-screen gap-5;
+
+    > h1 {
+        @apply text-2xl font-bold text-blue-500;
+    }
+
+    > a {
+        @apply text-blue-600 underline;
+    }
+}

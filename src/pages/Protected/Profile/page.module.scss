@@ -1,0 +1,15 @@
+.profile {
+    @apply flex flex-col items-center justify-center h-screen gap-6;
+
+    > h1 {
+        @apply flex flex-row text-2xl font-bold text-gray-500;
+
+        > a {
+            @apply pl-1 capitalize;
+        }
+    }
+
+    > a {
+        @apply text-blue-600 underline;
+    }
+}

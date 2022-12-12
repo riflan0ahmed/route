@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext, IAuth } from "../../../context/Auth";
 import { Button, TextField } from "@mui/material";
+import classes from "./page.module.scss";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -16,11 +17,11 @@ const Login = () => {
     };
 
     return (
-        <div className="grid grid-cols-2 gap-8 ">
-            <div className="w-full h-screen bg-blue-50"></div>
-            <div className="flex items-center justify-center ">
-                <div className="flex flex-col gap-4 w-96">
-                    <h2 className="text-3xl font-bold text-blue-500 ">Please login to continue</h2>
+        <div className={classes.login}>
+            <div className={classes.left}></div>
+            <div className={classes.right}>
+                <div className={classes.content}>
+                    <h2>Please login to continue</h2>
                     <TextField label="username" variant="filled" required onChange={(event) => setValue(event.target.value)} />
                     <Button color="primary" variant="contained" disabled={value === ""} onClick={authenticate}>
                         Authenticate
